@@ -1,0 +1,26 @@
+{
+    "name": "neutra-cms",
+    "private": true,
+    "version": "0.1.0",
+    "description": "Neutra CMS - Managed by Strapi",
+    "scripts": {
+        "develop": "strapi develop",
+        "start": "strapi start",
+        "build": "strapi build",
+        "strapi": "strapi"
+    },
+    "dependencies": {
+        "@strapi/strapi": "4.20.0",
+        "@strapi/plugin-users-permissions": "4.20.0",
+        "@strapi/plugin-i18n": "4.20.0",
+        "@strapi/plugin-cloud": "4.20.0",
+        "pg": "8.8.0"
+    },
+    "engines": {
+        "node": ">=18.0.0 <=20.x.x",
+        "npm": ">=6.0.0"
+    },
+    "strapi": {
+        "uuid": "a1b2c3d4-e5f6-7890"
+    }
+}

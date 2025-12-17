@@ -1,0 +1,51 @@
+version: '3'
+services:
+  neutra-cms:
+    container_name: neutra-cms
+    build: .
+    image: neutra-cms:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: neutra-cms-db
+      DATABASE_PORT: 5432
+      DATABASE_NAME: strapi
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: strapi
+      NODE_ENV: development
+    volumes:
+      - ./config:/opt/app/config
+      - ./src:/opt/app/src
+      - ./package.json:/opt/app/package.json
+      - ./.env:/opt/app/.env
+      - ./public/uploads:/opt/app/public/uploads
+    ports:
+      - '1337:1337'
+    networks:
+      - neutra-network
+    depends_on:
+      - neutra-cms-db
+
+  neutra-cms-db:
+    container_name: neutra-cms-db
+    image: postgres:14-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi
+      POSTGRES_DB: strapi
+    volumes:
+      - neutra-cms-data:/var/lib/postgresql/data
+    ports:
+      - '5433:5432'
+    networks:
+      - neutra-network
+
+networks:
+  neutra-network:
+    name: neutra_network
+    driver: bridge
+
+volumes:
+  neutra-cms-data:
