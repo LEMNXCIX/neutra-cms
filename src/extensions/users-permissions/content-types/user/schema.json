@@ -1,0 +1,8 @@
+{
+    "attributes": {
+        "tenantId": {
+            "type": "string",
+            "required": false
+        }
+    }
+}

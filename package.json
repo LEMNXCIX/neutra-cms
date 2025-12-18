@@ -10,11 +10,16 @@
         "strapi": "strapi"
     },
     "dependencies": {
-        "@strapi/strapi": "4.20.0",
-        "@strapi/plugin-users-permissions": "4.20.0",
-        "@strapi/plugin-i18n": "4.20.0",
-        "@strapi/plugin-cloud": "4.20.0",
-        "pg": "8.8.0"
+        "@strapi/plugin-cloud": "4.25.13",
+        "@strapi/plugin-i18n": "4.25.13",
+        "@strapi/plugin-users-permissions": "4.25.13",
+        "@strapi/strapi": "4.25.13",
+        "pg": "8.11.3",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "react-router-dom": "^5.3.4",
+        "sharp": "^0.34.5",
+        "styled-components": "^5.3.3"
     },
     "engines": {
         "node": ">=18.0.0 <=20.x.x",
