@@ -15,7 +15,8 @@
         "tenantId": {
             "type": "string",
             "required": true,
-            "unique": true
+            "unique": true,
+            "customField": "plugin::tenant-select.tenant"
         },
         "heroTitle": {
             "type": "string"

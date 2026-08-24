@@ -14,7 +14,8 @@
     "attributes": {
         "tenantId": {
             "type": "string",
-            "required": true
+            "required": true,
+            "customField": "plugin::tenant-select.tenant"
         },
         "slug": {
             "type": "string",

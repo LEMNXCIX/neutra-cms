@@ -520,6 +520,11 @@ export interface ApiHomeContentHomeContent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    bookingCtaHref: Schema.Attribute.String;
+    bookingCtaLabel: Schema.Attribute.String;
+    bookingHeroHighlight: Schema.Attribute.String;
+    bookingHeroSubtitle: Schema.Attribute.Text;
+    bookingHeroTitle: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -550,6 +555,8 @@ export interface ApiHomeContentHomeContent extends Struct.CollectionTypeSchema {
     newsletterSubtitle: Schema.Attribute.Text;
     newsletterTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    servicesSubtitle: Schema.Attribute.Text;
+    servicesTitle: Schema.Attribute.String;
     tenantId: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

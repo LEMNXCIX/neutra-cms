@@ -23,6 +23,10 @@ const deniedExecutableTypes = [
 ];
 
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin => ({
+  'tenant-select': {
+    enabled: true,
+    resolve: './src/plugins/tenant-select',
+  },
   'users-permissions': {
     config: {
       jwtManagement: 'refresh',
