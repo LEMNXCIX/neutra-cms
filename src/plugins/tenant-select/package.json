@@ -1,0 +1,8 @@
+{
+    "name": "tenant-select",
+    "version": "0.1.0",
+    "description": "Tenant picker custom field",
+    "strapi": {
+        "kind": "plugin"
+    }
+}
