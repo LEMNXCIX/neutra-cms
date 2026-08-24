@@ -1,0 +1,25 @@
+{
+    "kind": "collectionType",
+    "collectionName": "admin_tenants",
+    "info": {
+        "singularName": "admin-tenant",
+        "pluralName": "admin-tenants",
+        "displayName": "Tenant Admin",
+        "description": "Maps an admin-panel user (by email) to a tenant. Admins not listed here are superadmins (full access)."
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "email": {
+            "type": "email",
+            "required": true,
+            "unique": true
+        },
+        "tenantId": {
+            "type": "string",
+            "required": true
+        }
+    }
+}

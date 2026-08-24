@@ -11,5 +11,6 @@
         "answer": {
             "type": "blocks"
         }
-    }
+    },
+    "collectionName": "components_shared_faq_items"
 }

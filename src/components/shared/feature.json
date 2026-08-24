@@ -6,7 +6,14 @@
     "attributes": {
         "icon": {
             "type": "enumeration",
-            "enum": ["truck", "shield", "tag", "heart", "box", "zap"],
+            "enum": [
+                "truck",
+                "shield",
+                "tag",
+                "heart",
+                "box",
+                "zap"
+            ],
             "default": "box"
         },
         "title": {
@@ -16,5 +23,6 @@
         "description": {
             "type": "text"
         }
-    }
+    },
+    "collectionName": "components_shared_features"
 }
