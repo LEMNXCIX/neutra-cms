@@ -1,4 +1,4 @@
-import pluginId from "../pluginId";
+const pluginId = "tenant-select";
 import TenantSelectInput from "./components/TenantSelect";
 
 export default {

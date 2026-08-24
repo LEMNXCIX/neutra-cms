@@ -13,9 +13,9 @@
             "require": "./strapi-admin.ts"
         },
         "./strapi-server": {
-            "types": "./strapi-server.ts",
-            "import": "./strapi-server.ts",
-            "require": "./strapi-server.ts"
+            "types": "./strapi-server.js",
+            "import": "./strapi-server.js",
+            "require": "./strapi-server.js"
         }
     }
 }
