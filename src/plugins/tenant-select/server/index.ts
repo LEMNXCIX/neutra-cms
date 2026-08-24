@@ -1,4 +1,5 @@
 import type { Core } from "@strapi/strapi";
+import pluginId from "../pluginId";
 
 const listTenants = async (ctx: any) => {
     const base = process.env.TENANTS_API_URL || "http://localhost:4000/api";

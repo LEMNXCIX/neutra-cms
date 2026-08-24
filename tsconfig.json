@@ -36,9 +36,10 @@
 
     // Do not include admin files in the server compilation
     "src/admin/",
+    // Plugin admin UI is compiled by the admin build (vite), not by tsc
+    "src/plugins/**/admin/**",
+    "src/plugins/**/strapi-admin.*",
     // Do not include test files
-    "**/*.test.*",
-    // Do not include plugins in the server compilation
-    "src/plugins/**"
+    "**/*.test.*"
   ]
 }

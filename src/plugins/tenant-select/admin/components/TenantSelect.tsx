@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Combobox, Field } from "@strapi/design-system";
+import { Combobox, ComboboxOption, Field } from "@strapi/design-system";
 import { useFetchClient } from "@strapi/strapi/admin";
 
 type Tenant = { id: string; name: string; slug?: string };
 
 const TenantSelectInput = (props: any) => {
-    const { name, onChange, value, labelAction, required, error, hint, disabled } = props;
+    const { name, onChange, value, required, error, hint, disabled } = props;
     const { get } = useFetchClient();
     const [tenants, setTenants] = useState<Tenant[]>([]);
     const [fetchError, setFetchError] = useState<string | null>(null);
@@ -36,10 +36,10 @@ const TenantSelectInput = (props: any) => {
                 }
             >
                 {tenants.map((t) => (
-                    <Combobox.Option value={t.id} key={t.id}>
+                    <ComboboxOption value={t.id} key={t.id}>
                         {t.name}
                         {t.slug ? ` (${t.slug})` : ""}
-                    </Combobox.Option>
+                    </ComboboxOption>
                 ))}
             </Combobox>
         </Field.Root>
