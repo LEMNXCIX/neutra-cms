@@ -31,7 +31,7 @@ async function tenantIdForEmail(
     const entry = await strapi
         .documents("api::admin-tenant.admin-tenant")
         .findFirst({ filters: { email: { $eqi: email } } });
-    if (!entry) return null;
+    if (!entry?.tenantId) return null;
 
     tenantByEmail.set(email, {
         tenantId: entry.tenantId,
