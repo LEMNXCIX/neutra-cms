@@ -1,0 +1,77 @@
+{
+    "kind": "collectionType",
+    "collectionName": "home_contents",
+    "info": {
+        "singularName": "home-content",
+        "pluralName": "home-contents",
+        "displayName": "Home Content",
+        "description": "Marketing copy for a tenant storefront home"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "tenantId": {
+            "type": "string",
+            "required": true,
+            "unique": true
+        },
+        "heroTitle": {
+            "type": "string"
+        },
+        "heroHighlight": {
+            "type": "string"
+        },
+        "heroSubtitle": {
+            "type": "text"
+        },
+        "heroCtaLabel": {
+            "type": "string"
+        },
+        "heroCtaHref": {
+            "type": "string"
+        },
+        "featuresTitle": {
+            "type": "string"
+        },
+        "featuresSubtitle": {
+            "type": "string"
+        },
+        "features": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.feature"
+        },
+        "ctaTitle": {
+            "type": "string"
+        },
+        "ctaHighlight": {
+            "type": "string"
+        },
+        "ctaSubtitle": {
+            "type": "text"
+        },
+        "ctaPrimaryLabel": {
+            "type": "string"
+        },
+        "ctaPrimaryHref": {
+            "type": "string"
+        },
+        "ctaSecondaryLabel": {
+            "type": "string"
+        },
+        "ctaSecondaryHref": {
+            "type": "string"
+        },
+        "newsletterTitle": {
+            "type": "string"
+        },
+        "newsletterSubtitle": {
+            "type": "text"
+        },
+        "footerDescription": {
+            "type": "text"
+        }
+    }
+}

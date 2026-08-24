@@ -1,0 +1,20 @@
+{
+    "info": {
+        "displayName": "Feature",
+        "description": "Home features grid item"
+    },
+    "attributes": {
+        "icon": {
+            "type": "enumeration",
+            "enum": ["truck", "shield", "tag", "heart", "box", "zap"],
+            "default": "box"
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        }
+    }
+}

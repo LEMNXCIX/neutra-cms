@@ -1,0 +1,15 @@
+{
+    "info": {
+        "displayName": "FAQ item",
+        "description": "Question and answer pair"
+    },
+    "attributes": {
+        "question": {
+            "type": "string",
+            "required": true
+        },
+        "answer": {
+            "type": "blocks"
+        }
+    }
+}

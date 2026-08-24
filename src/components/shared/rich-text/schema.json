@@ -1,0 +1,11 @@
+{
+    "info": {
+        "displayName": "Rich text",
+        "description": "Rich text block (Strapi blocks format)"
+    },
+    "attributes": {
+        "content": {
+            "type": "blocks"
+        }
+    }
+}
