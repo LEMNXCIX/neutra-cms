@@ -71,8 +71,7 @@ module.exports = {
     routes: {
         admin: {
             type: "admin",
-            // useFetchClient in the admin panel prefixes calls with /admin
-            prefix: "/admin/tenant-select",
+            // default prefix: /tenant-select (useFetchClient does NOT add /admin)
             routes: [
                 {
                     method: "GET",
