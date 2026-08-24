@@ -78,6 +78,12 @@
         },
         "footerDescription": {
             "type": "text"
+        },
+        "servicesTitle": {
+            "type": "string"
+        },
+        "servicesSubtitle": {
+            "type": "text"
         }
     }
 }
