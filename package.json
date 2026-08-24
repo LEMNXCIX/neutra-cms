@@ -1,31 +1,37 @@
 {
     "name": "neutra-cms",
-    "private": true,
     "version": "0.1.0",
+    "private": true,
     "description": "Neutra CMS - Managed by Strapi",
     "scripts": {
+        "build": "strapi build",
+        "console": "strapi console",
+        "deploy": "strapi deploy",
+        "dev": "strapi develop",
         "develop": "strapi develop",
         "start": "strapi start",
-        "build": "strapi build",
-        "strapi": "strapi"
+        "strapi": "strapi",
+        "upgrade": "npx @strapi/upgrade latest",
+        "upgrade:dry": "npx @strapi/upgrade latest --dry"
     },
     "dependencies": {
-        "@strapi/plugin-cloud": "4.25.13",
-        "@strapi/plugin-i18n": "4.25.13",
-        "@strapi/plugin-users-permissions": "4.25.13",
-        "@strapi/strapi": "4.25.13",
-        "pg": "8.11.3",
+        "@strapi/database": "5.52.1",
+        "@strapi/plugin-users-permissions": "5.52.1",
+        "@strapi/strapi": "5.52.1",
+        "pg": "8.20.0",
         "react": "^18.0.0",
         "react-dom": "^18.0.0",
-        "react-router-dom": "^5.3.4",
-        "sharp": "^0.34.5",
-        "styled-components": "^5.3.3"
+        "react-router-dom": "^6.30.3",
+        "styled-components": "^6.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "typescript": "^5"
     },
     "engines": {
-        "node": ">=18.0.0 <=20.x.x",
+        "node": ">=20.0.0 <=26.x.x",
         "npm": ">=6.0.0"
-    },
-    "strapi": {
-        "uuid": "a1b2c3d4-e5f6-7890"
     }
 }
