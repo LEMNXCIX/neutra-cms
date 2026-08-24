@@ -39,7 +39,10 @@ const listTenants = async (ctx: any) => {
 
     try {
         const res = await fetch(`${base}/tenants`, {
-            headers: { Authorization: `Bearer ${jwt}` },
+            headers:
+                staticToken
+                    ? { "x-api-token": staticToken }
+                    : { Authorization: `Bearer ${jwt}` },
         });
         if (res.status === 401 && !staticToken) {
             cachedToken = null; // expired, re-login on next call
