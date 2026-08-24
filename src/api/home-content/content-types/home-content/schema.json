@@ -84,6 +84,21 @@
         },
         "servicesSubtitle": {
             "type": "text"
+        },
+        "bookingHeroTitle": {
+            "type": "string"
+        },
+        "bookingHeroHighlight": {
+            "type": "string"
+        },
+        "bookingHeroSubtitle": {
+            "type": "text"
+        },
+        "bookingCtaLabel": {
+            "type": "string"
+        },
+        "bookingCtaHref": {
+            "type": "string"
         }
     }
 }
