@@ -74,12 +74,18 @@ export default {
         });
     },
     controllers: { "tenant-select": { listTenants } },
-    routes: [
-        {
-            method: "GET",
-            path: "/tenants",
-            handler: "tenant-select.listTenants",
-            info: { type: "admin", description: "List tenants for the selector" },
+    routes: {
+        admin: {
+            type: "admin",
+            routes: [
+                {
+                    method: "GET",
+                    path: "/tenants",
+                    handler: "tenant-select.listTenants",
+                    // # ponytail: any authenticated admin can list tenants;
+                    // add admin::hasPermissions scoping if that ever matters.
+                },
+            ],
         },
-    ],
+    },
 };
