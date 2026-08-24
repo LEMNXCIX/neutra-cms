@@ -3,10 +3,12 @@
  * Any modifications made will be discarded.
  */
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
+import tenantSelect from "../../src/plugins/tenant-select/./strapi-admin.ts";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
   plugins: {
     "users-permissions": usersPermissions,
+    "tenant-select": tenantSelect,
   },
 });

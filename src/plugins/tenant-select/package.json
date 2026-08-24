@@ -4,5 +4,18 @@
     "description": "Tenant picker custom field",
     "strapi": {
         "kind": "plugin"
+    },
+    "exports": {
+        "./package.json": "./package.json",
+        "./strapi-admin": {
+            "types": "./strapi-admin.ts",
+            "import": "./strapi-admin.ts",
+            "require": "./strapi-admin.ts"
+        },
+        "./strapi-server": {
+            "types": "./strapi-server.ts",
+            "import": "./strapi-server.ts",
+            "require": "./strapi-server.ts"
+        }
     }
 }
