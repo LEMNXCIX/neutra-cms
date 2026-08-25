@@ -83,6 +83,10 @@
         "servicesTitle": {
             "type": "string"
         },
+        "servicesBadge": {
+            "type": "string",
+            "default": "Qué ofrecemos"
+        },
         "servicesSubtitle": {
             "type": "text"
         },
@@ -100,6 +104,11 @@
         },
         "bookingCtaHref": {
             "type": "string"
+        },
+        "socialLinks": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.social-link"
         }
     }
 }
