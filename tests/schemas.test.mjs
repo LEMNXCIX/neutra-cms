@@ -60,15 +60,33 @@ const contentTypes = listContentTypes();
 const components = listComponents();
 const componentUids = new Set(components.map((c) => c.uid));
 
-const TENANT_SCOPED = [
-    "api::banner.banner",
-    "api::home-content.home-content",
-    "api::page.page",
-];
+// Content types that hold per-tenant content (must have tenantId)
+const TENANT_SCOPED = contentTypes
+    .filter((c) => c.schema.attributes.tenantId)
+    .map((c) => c.uid);
 
 test("content types and components exist", () => {
-    assert.ok(contentTypes.length >= 4, "expected at least 4 content types");
-    assert.ok(components.length >= 3, "expected at least 3 components");
+    const uids = contentTypes.map((c) => c.uid);
+    for (const expected of [
+        "api::home-content.home-content",
+        "api::admin-tenant.admin-tenant",
+        "api::about-page.about-page",
+        "api::faq-page.faq-page",
+        "api::contact-page.contact-page",
+        "api::privacy-page.privacy-page",
+        "api::terms-page.terms-page",
+        "api::careers-page.careers-page",
+        "api::returns-page.returns-page",
+        "api::shipping-page.shipping-page",
+    ]) {
+        assert.ok(uids.includes(expected), `missing content type: ${expected}`);
+    }
+    assert.ok(
+        !uids.includes("api::banner.banner"),
+        "banner was removed and must stay removed"
+    );
+    assert.ok(!uids.includes("api::page.page"), "page was removed and must stay removed");
+    assert.ok(components.length >= 9, "expected at least 9 components");
 });
 
 test("every schema has required v5 fields", () => {
@@ -83,36 +101,38 @@ test("every schema has required v5 fields", () => {
 });
 
 test("tenant-scoped content types have a tenantId attribute", () => {
-    for (const { uid, schema } of contentTypes) {
-        if (!TENANT_SCOPED.includes(uid)) continue;
-        assert.ok(
-            schema.attributes.tenantId?.type === "string",
-            `${uid}: missing tenantId attribute`
+    assert.ok(TENANT_SCOPED.length >= 9, "expected at least 9 tenant-scoped types");
+    for (const uid of TENANT_SCOPED) {
+        const ct = contentTypes.find((c) => c.uid === uid);
+        assert.equal(
+            ct.schema.attributes.tenantId.type,
+            "string",
+            `${uid}: tenantId must be a string`
         );
     }
 });
 
 test("component references in attributes resolve", () => {
-    const collect = (attrs) => {
+    const collect = (uid, attrs) => {
         for (const attr of Object.values(attrs)) {
             if (attr.type === "component") {
                 assert.ok(
                     componentUids.has(attr.component),
-                    `dangling component reference: ${attr.component}`
+                    `${uid}: dangling component reference: ${attr.component}`
                 );
             }
             if (attr.type === "dynamiczone") {
-                for (const uid of attr.components ?? []) {
+                for (const c of attr.components ?? []) {
                     assert.ok(
-                        componentUids.has(uid),
-                        `dangling dynamic zone component: ${uid}`
+                        componentUids.has(c),
+                        `${uid}: dangling dynamic zone component: ${c}`
                     );
                 }
             }
         }
     };
-    for (const { uid, schema } of contentTypes) collect(schema.attributes);
-    for (const { uid, schema } of components) collect(schema.attributes);
+    for (const { uid, schema } of contentTypes) collect(uid, schema.attributes);
+    for (const { uid, schema } of components) collect(uid, schema.attributes);
 });
 
 test("home-content has the fields the frontend consumes", () => {
@@ -137,6 +157,15 @@ test("home-content has the fields the frontend consumes", () => {
         "newsletterTitle",
         "newsletterSubtitle",
         "footerDescription",
+        "socialLinks",
+        "servicesBadge",
+        "servicesTitle",
+        "servicesSubtitle",
+        "bookingHeroTitle",
+        "bookingHeroHighlight",
+        "bookingHeroSubtitle",
+        "bookingCtaLabel",
+        "bookingCtaHref",
     ]) {
         assert.ok(
             home.schema.attributes[field],
@@ -145,8 +174,25 @@ test("home-content has the fields the frontend consumes", () => {
     }
 });
 
-test("page slugs cover the static frontend routes", () => {
-    const page = contentTypes.find((c) => c.uid === "api::page.page");
-    assert.ok(page, "page content type missing");
-    assert.equal(page.schema.attributes.slug?.type, "string", "page: slug must be a string");
+test("page schemas have the fields the static pages consume", () => {
+    const expectations = {
+        "api::about-page.about-page": ["quote", "stats", "content"],
+        "api::faq-page.faq-page": ["faqs"],
+        "api::contact-page.contact-page": ["email", "phone", "address"],
+        "api::privacy-page.privacy-page": ["content"],
+        "api::terms-page.terms-page": ["content"],
+        "api::careers-page.careers-page": ["jobs"],
+        "api::returns-page.returns-page": ["steps", "policies"],
+        "api::shipping-page.shipping-page": ["methods", "tiers"],
+    };
+    for (const [uid, fields] of Object.entries(expectations)) {
+        const ct = contentTypes.find((c) => c.uid === uid);
+        assert.ok(ct, `${uid} missing`);
+        for (const field of ["badge", "title", "titleHighlight", "subtitle", ...fields]) {
+            assert.ok(
+                ct.schema.attributes[field],
+                `${uid}: missing ${field}`
+            );
+        }
+    }
 });

@@ -1,0 +1,19 @@
+{
+    "info": {
+        "displayName": "Shipping Method",
+        "description": "Shipping option"
+    },
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "price": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text"
+        }
+    },
+    "collectionName": "components_shared_methods"
+}

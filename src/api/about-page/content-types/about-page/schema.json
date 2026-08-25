@@ -1,0 +1,26 @@
+{
+    "kind": "collectionType",
+    "collectionName": "about_pages",
+    "info": {
+        "singularName": "about-page",
+        "pluralName": "about-pages",
+        "displayName": "Página: Nosotros",
+        "description": "Contenido de la página Sobre Nosotros"
+    },
+    "options": { "draftAndPublish": true },
+    "attributes": {
+        "tenantId": {
+            "type": "string",
+            "required": true,
+            "unique": true,
+            "customField": "plugin::tenant-select.tenant"
+        },
+        "badge": { "type": "string" },
+        "title": { "type": "string" },
+        "titleHighlight": { "type": "string" },
+        "subtitle": { "type": "text" },
+        "quote": { "type": "text" },
+        "stats": { "type": "component", "repeatable": true, "component": "shared.stat" },
+        "content": { "type": "component", "repeatable": true, "component": "shared.rich-text" }
+    }
+}

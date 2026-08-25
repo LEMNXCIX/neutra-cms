@@ -1,0 +1,24 @@
+{
+    "kind": "collectionType",
+    "collectionName": "careers_pages",
+    "info": {
+        "singularName": "careers-page",
+        "pluralName": "careers-pages",
+        "displayName": "Página: Carreras",
+        "description": "Oportunidades laborales"
+    },
+    "options": { "draftAndPublish": true },
+    "attributes": {
+        "tenantId": {
+            "type": "string",
+            "required": true,
+            "unique": true,
+            "customField": "plugin::tenant-select.tenant"
+        },
+        "badge": { "type": "string" },
+        "title": { "type": "string" },
+        "titleHighlight": { "type": "string" },
+        "subtitle": { "type": "text" },
+        "jobs": { "type": "component", "repeatable": true, "component": "shared.job" }
+    }
+}

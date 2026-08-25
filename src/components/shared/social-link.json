@@ -1,0 +1,26 @@
+{
+    "info": {
+        "displayName": "Social Link",
+        "description": "Social network link for the footer"
+    },
+    "attributes": {
+        "platform": {
+            "type": "enumeration",
+            "enum": [
+                "facebook",
+                "twitter",
+                "instagram",
+                "linkedin",
+                "youtube",
+                "tiktok",
+                "whatsapp"
+            ],
+            "required": true
+        },
+        "url": {
+            "type": "string",
+            "required": true
+        }
+    },
+    "collectionName": "components_shared_social_links"
+}

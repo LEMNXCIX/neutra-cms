@@ -1,0 +1,13 @@
+{
+    "info": {
+        "displayName": "Note",
+        "description": "Simple text note (steps, policies, bullets)"
+    },
+    "attributes": {
+        "text": {
+            "type": "text",
+            "required": true
+        }
+    },
+    "collectionName": "components_shared_notes"
+}

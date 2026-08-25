@@ -1,0 +1,16 @@
+{
+    "info": {
+        "displayName": "Rate Tier",
+        "description": "Shipping rate tier"
+    },
+    "attributes": {
+        "label": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        }
+    },
+    "collectionName": "components_shared_tiers"
+}

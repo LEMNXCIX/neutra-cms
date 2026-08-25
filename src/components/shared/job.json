@@ -1,0 +1,19 @@
+{
+    "info": {
+        "displayName": "Job",
+        "description": "Job opening"
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "location": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text"
+        }
+    },
+    "collectionName": "components_shared_jobs"
+}

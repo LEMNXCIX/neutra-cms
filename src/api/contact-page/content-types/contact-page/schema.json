@@ -1,0 +1,26 @@
+{
+    "kind": "collectionType",
+    "collectionName": "contact_pages",
+    "info": {
+        "singularName": "contact-page",
+        "pluralName": "contact-pages",
+        "displayName": "Página: Contacto",
+        "description": "Datos de contacto"
+    },
+    "options": { "draftAndPublish": true },
+    "attributes": {
+        "tenantId": {
+            "type": "string",
+            "required": true,
+            "unique": true,
+            "customField": "plugin::tenant-select.tenant"
+        },
+        "badge": { "type": "string" },
+        "title": { "type": "string" },
+        "titleHighlight": { "type": "string" },
+        "subtitle": { "type": "text" },
+        "email": { "type": "email" },
+        "phone": { "type": "string" },
+        "address": { "type": "text" }
+    }
+}

@@ -27,14 +27,6 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
     enabled: true,
     resolve: './src/plugins/tenant-select',
   },
-  'users-permissions': {
-    config: {
-      jwtManagement: 'refresh',
-      sessions: {
-        httpOnly: true,
-      },
-    },
-  },
   upload: {
     config: {
       security: {
